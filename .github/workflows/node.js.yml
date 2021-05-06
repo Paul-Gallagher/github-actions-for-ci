@@ -1,4 +1,4 @@
-name: Node CI tweak
+name: Node CI
 
 on: [push]
 
@@ -11,6 +11,10 @@ jobs:
         run: |
           npm install
           npm run build
+      - uses: actions/upload-artifact@main
+        with:
+          name: webpack artifacts
+          path: public/
 
   test:
     runs-on: ubuntu-latest
